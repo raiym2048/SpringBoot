@@ -51,7 +51,13 @@ public class MainController {
         return "users";
     }
 
+    @GetMapping("/")
+    public ModelAndView index() {
+        ModelAndView modelAndView = new ModelAndView("index");
 
+        return modelAndView;
+    }
+    
     @GetMapping("courses/{id}")
     public String blog(@PathVariable("id") Long id, Model model) {
         Course course = courseRepository.findById(id).orElseThrow();
