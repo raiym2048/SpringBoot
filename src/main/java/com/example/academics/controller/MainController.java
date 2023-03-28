@@ -52,10 +52,9 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("index");
+    public String index() {
 
-        return modelAndView;
+        return "index";
     }
     
     @GetMapping("courses/{id}")
