@@ -39,6 +39,11 @@ public class MainController {
     public byte[] getImage(@PathVariable("courseId") Long blogId,HttpServletResponse response) {
         return courseRepository.findById(blogId).orElseThrow().getPhoto();
     }
+    
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 
     @GetMapping("courses")
     public String home(Model model) {
@@ -49,12 +54,6 @@ public class MainController {
     public String user(Model model) {
         model.addAttribute("users",userRepository.findAll());
         return "users";
-    }
-
-    @GetMapping("/")
-    public String index() {
-
-        return "index";
     }
     
     @GetMapping("courses/{id}")
